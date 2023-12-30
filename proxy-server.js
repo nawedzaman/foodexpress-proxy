@@ -10,8 +10,8 @@ const apiProxy = httpProxy.createProxyServer();
 app.use(cors());
 
 // Proxy route for Swiggy API
-app.get('/swiggy-api', (req, res) => {
-  apiProxy.web(req, res, { target: 'https://www.swiggy.com', changeOrigin: true });
+app.get('/swiggy-api/*', (req, res) => {
+  apiProxy.web(req, res, { target: 'https://www.swiggy.com' });
 });
 
 const PORT = process.env.PORT || 3001;
